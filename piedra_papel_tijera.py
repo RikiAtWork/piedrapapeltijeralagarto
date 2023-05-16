@@ -3,9 +3,12 @@ import random
 piedra = 'piedra'
 papel = 'papel'
 tijera = 'tijera'
-opcion = [piedra, papel, tijera]
-partidas = [[papel, piedra], [tijera, papel], [piedra, tijera]]
-no_partidas = [[piedra, papel], [papel, tijera], [tijera, piedra]]
+lagarto = 'lagarto'
+opcion = [piedra, papel, tijera, lagarto]
+partidas = [[papel, piedra], [tijera, papel], [piedra, tijera],
+            [lagarto, papel], [piedra, lagarto], [tijera, lagarto]]
+no_partidas = [[piedra, papel], [papel, tijera], [tijera, piedra],
+               [papel, lagarto], [lagarto, piedra], [lagarto, tijera]]
 
 
 def generar_movimientos():
@@ -21,7 +24,7 @@ def verificar_movimientos(usario_mov, ordenador_mov):
     return 0
 
 
-print("JUEGO : Piedra, papel y tijera")
+print("JUEGO : Piedra, papel, tijera y lagarto")
 
 while True:
     opciones = input("Quieres jugar? (s/n): ")
@@ -29,15 +32,17 @@ while True:
         ordenador_movimiento = generar_movimientos()
         while True:
             movimiento = input("Selecciona un movimiento ('p' para piedra / 'a' para papel "
-                               "/ 't' para tijeras): ").lower()
+                               "/ 't' para tijeras / 'l' para lagarto): ").lower()
             usuario_movimiento = ""
-            if movimiento in ['p', 'a', 't']:
+            if movimiento in ['p', 'a', 't', 'l']:
                 if movimiento == 'p':
                     usuario_movimiento = piedra
                 elif movimiento == 'a':
                     usuario_movimiento = papel
                 elif movimiento == 't':
                     usuario_movimiento = tijera
+                elif movimiento == 'l':
+                    usuario_movimiento = lagarto
 
                 print(f"Elección del ordenador: {ordenador_movimiento}")
                 print(f"Elección del usuario: {usuario_movimiento}")
