@@ -1,4 +1,5 @@
 import random
+import sys
 
 piedra = 'piedra'
 papel = 'papel'
@@ -25,6 +26,7 @@ def verificar_movimientos(usario_mov, ordenador_mov):
 
 
 print("JUEGO : Piedra, papel, tijera y lagarto")
+nombre = input("Introduce tu nombre: ")
 
 while True:
     opciones = input("Quieres jugar? (s/n): ")
@@ -34,6 +36,9 @@ while True:
             movimiento = input("Selecciona un movimiento ('p' para piedra / 'a' para papel "
                                "/ 't' para tijeras / 'l' para lagarto): ").lower()
             usuario_movimiento = ""
+            if movimiento.upper() == "TERMINAR":
+                sys.exit("Tienes miedo?")
+
             if movimiento in ['p', 'a', 't', 'l']:
                 if movimiento == 'p':
                     usuario_movimiento = piedra
@@ -48,7 +53,7 @@ while True:
                 print(f"Elección del usuario: {usuario_movimiento}")
 
                 if verificar_movimientos(usuario_movimiento, ordenador_movimiento) == 1:
-                    print("Gana el usuario !!!")
+                    print(f"Gana el usuario, {nombre} !!!")
                 elif verificar_movimientos(usuario_movimiento, ordenador_movimiento) == -1:
                     print("Gana el ordenador !!!")
                 elif verificar_movimientos(usuario_movimiento, ordenador_movimiento) == 0:
