@@ -1,4 +1,5 @@
 import random
+import sys
 
 piedra = 'piedra'
 papel = 'papel'
@@ -32,6 +33,9 @@ while True:
             movimiento = input("Selecciona un movimiento ('p' para piedra / 'a' para papel "
                                "/ 't' para tijeras): ").lower()
             usuario_movimiento = ""
+            if movimiento.upper() == "TERMINAR":
+                sys.exit("Tienes miedo?")
+
             if movimiento in ['p', 'a', 't']:
                 if movimiento == 'p':
                     usuario_movimiento = piedra
